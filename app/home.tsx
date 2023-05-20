@@ -1,5 +1,7 @@
-import { SafeAreaView, ScrollView, View, Text, StyleSheet, Platform, StatusBar, Dimensions, Image } from 'react-native';
+import { useState, useContext } from 'react';
+import { SafeAreaView, ScrollView, View, Text, StyleSheet, Platform, StatusBar, FlatList } from 'react-native';
 import { Stack, useRouter, Link } from 'expo-router';
+import CatsContext from '../hooks/CatsContext';
 
 import CatOverview from '../components/catOverview/CatOverview';
 
@@ -7,9 +9,12 @@ const PHOTOS = Array.from({ length: 25 }).map((_, i) => `https://unsplash.it/300
 
 const Home = () => {
   const router = useRouter();
+  const { cats, setCats } = useContext(CatsContext);
+
   return (
     <SafeAreaView style={styles.container}>
       <Link href="./addCat/AddCat">Add cat</Link>
+      <FlatList data={cats} renderItem={({ item }) => <Text>{item.key}</Text>} />
       <ScrollView>
         <View style={styles.grid}>
           {PHOTOS.map((uri) => (
