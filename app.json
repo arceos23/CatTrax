@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "scheme": "myapp",
+    "name": "CodingChallengeApp",
+    "slug": "CodingChallengeApp",
+    "version": "1.0.0",
+    "icon": "./assets/CatTraxIcon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/CatTraxSplash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#3B3838"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/CatTraxAdaptiveFavicon.png",
+        "backgroundColor": "#3B3838"
+      }
+    },
+    "web": {
+      "favicon": "./assets/CatTraxFavicon.png",
+      "bundler": "metro"
+    }
+  }
+}
