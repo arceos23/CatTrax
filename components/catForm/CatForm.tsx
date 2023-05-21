@@ -3,6 +3,7 @@ import { View, Text, FlatList } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 import styles from './CatFormStyles';
 import CatsContext from '../../hooks/CatsContext';
+import { Redirect } from 'expo-router';
 
 const CatForm = () => {
   const [name, setName] = useState('');
@@ -10,13 +11,8 @@ const CatForm = () => {
   const [age, setAge] = useState('');
   const [favFoods, setFavFoods] = useState('');
   const [description, setDescription] = useState('');
-  const { cats, setCats } = useContext(CatsContext);
+  let { cats, setCats } = useContext(CatsContext);
 
-  //   const addCat = (cat) => {
-  //     cats.push({ key: { name } });
-  //   };
-
-  console.log(cats);
   return (
     <>
       <TextInput label="Name" value={name} onChangeText={setName} multiline></TextInput>
@@ -24,15 +20,28 @@ const CatForm = () => {
       <TextInput label="Age" value={age} onChangeText={setAge} multiline></TextInput>
       <TextInput label="Favorite foods" value={favFoods} onChangeText={setFavFoods} multiline></TextInput>
       <TextInput label="Description" value={description} onChangeText={setDescription} multiline></TextInput>
-      {/* <Button onPress={setCats({ name: name, breed: breed, age: age, favFoods: favFoods, description: description })}>
+      <Button
+        onPress={() => {
+          cats.push({ name, breed, age, favFoods, description });
+          return <Redirect href="/home" />;
+        }}
+      >
         Submit
-      </Button> */}
-      {/* <Button onPress={cats.push({ name: name, breed: breed, age: age, favFoods: favFoods, description: description })}>
-        Submit
-      </Button> */}
-      {/* <Button onPress={addCat}>Submit</Button> */}
-      <Button onPress={() => cats.push({ key: name })}>Submit</Button>
-      <FlatList data={cats} renderItem={({ item }) => <Text>{item.key}</Text>} />
+      </Button>
+      {/* <FlatList
+        data={cats}
+        renderItem={({ item }) => {
+          return (
+            <>
+              <Text>{item.name}</Text>
+              <Text>{item.breed}</Text>
+              <Text>{item.age}</Text>
+              <Text>{item.favFoods}</Text>
+              <Text>{item.description}</Text>
+            </>
+          );
+        }}
+      ></FlatList> */}
     </>
   );
 };

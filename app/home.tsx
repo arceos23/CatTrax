@@ -14,12 +14,29 @@ const Home = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Link href="./addCat/AddCat">Add cat</Link>
-      <FlatList data={cats} renderItem={({ item }) => <Text>{item.key}</Text>} />
+      <FlatList
+        data={cats}
+        renderItem={({ item }) => {
+          return (
+            <>
+              <Text>{item.name}</Text>
+              <Text>{item.breed}</Text>
+              <Text>{item.age}</Text>
+              <Text>{item.favFoods}</Text>
+              <Text>{item.description}</Text>
+            </>
+          );
+        }}
+      ></FlatList>
       <ScrollView>
         <View style={styles.grid}>
+          {cats.map((cat) => (
+            <CatOverview key={cat.name} name={cat.name} uri={PHOTOS[0]}></CatOverview>
+          ))}
+          {/* <View style={styles.grid}>
           {PHOTOS.map((uri) => (
             <CatOverview key={uri} uri={uri}></CatOverview>
-          ))}
+          ))} */}
         </View>
       </ScrollView>
     </SafeAreaView>
