@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
       },
     },
     default: {
-      surface: {
+      pressable: {
         height: Dimensions.get('window').width / 2.5,
         width: '40%',
         padding: '2.5%',
@@ -22,11 +22,17 @@ const styles = StyleSheet.create({
         borderRadius: Dimensions.get('window').width * 0.05,
         overflow: 'hidden',
       },
+      surface: {
+        flex: 1,
+        margin: '2.5%',
+        borderRadius: Dimensions.get('window').width * 0.05,
+      },
     },
   }),
   photo: {
     flex: 1,
     resizeMode: 'cover',
+    borderRadius: Dimensions.get('window').width * 0.05,
   },
 });
 

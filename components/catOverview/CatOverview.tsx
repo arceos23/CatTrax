@@ -6,7 +6,8 @@ import styles from './CatOverviewStyle';
 const CatOverview = ({ id, name, photo }) => {
   return (
     <Link href={`./catDetail/${id}`} asChild>
-      <Pressable style={styles.surface}>
+      {/* <Pressable style={styles.surface}> */}
+      <Pressable style={styles.pressable}>
         <Surface style={styles.surface} elevation={0}>
           <Text>{name}</Text>
           <Image source={{ uri: photo }} style={styles.photo} accessibilityIgnoresInvertColors />
