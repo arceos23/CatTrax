@@ -52,7 +52,7 @@ const EditCatForm = ({ id, name, breed, age, favFoods, description, photo }: Cat
               age: newAge,
               favFoods: newFavFoods,
               description: newDescription,
-              photo: photo,
+              photo: newPhoto,
             },
           ]);
           router.push(`/catDetail/${newId}`);
