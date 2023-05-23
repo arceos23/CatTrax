@@ -3,6 +3,10 @@ import { Button, TextInput, Snackbar } from 'react-native-paper';
 import styles from './CatFormStyles';
 import CatsContext from '../../hooks/CatsContext';
 
+const generateKey = (name: string) => {
+  return `${name}_${new Date().getTime()}`;
+};
+
 const CatForm = () => {
   const [name, setName] = useState('');
   const [breed, setBreed] = useState('');
@@ -14,6 +18,9 @@ const CatForm = () => {
   const onToggleSnackBar = () => setVisible(!visible);
   const onDismissSnackBar = () => setVisible(false);
 
+  // For testing
+  const photo = Array.from({ length: 1 }).map((_, i) => `https://unsplash.it/300/300/?random&__id=${i}`);
+
   return (
     <>
       <TextInput label="Name" value={name} onChangeText={setName} multiline></TextInput>
@@ -23,7 +30,9 @@ const CatForm = () => {
       <TextInput label="Description" value={description} onChangeText={setDescription} multiline></TextInput>
       <Button
         onPress={() => {
-          setCats([...cats, { name, breed, age, favFoods, description }]);
+          setCats([...cats, { id: generateKey(name), name, breed, age, favFoods, description, photo: photo[0] }]);
+          // console.log({ id: generateKey(name), name, breed, age, favFoods, description, photo[0 });
+          console.log(cats);
           setName('');
           setBreed('');
           setAge('');

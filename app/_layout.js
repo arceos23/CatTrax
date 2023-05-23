@@ -10,6 +10,7 @@ export default function Layout() {
     <PaperProvider>
       <CatsContext.Provider value={{ cats, setCats }}>
         <Tabs>
+          {/* Displayed tabs */}
           <Tabs.Screen
             name="home"
             options={{
@@ -17,7 +18,6 @@ export default function Layout() {
               tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="cat" size={size} color={color} />,
             }}
           />
-          <Tabs.Screen name="index" options={{ href: null }} />
           <Tabs.Screen
             name="addCat/addCat"
             options={{
@@ -25,7 +25,11 @@ export default function Layout() {
               tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="plus" size={size} color={color} />,
             }}
           />
+          {/* Hidden tabs */}
+          <Tabs.Screen name="index" options={{ href: null }} />
           <Tabs.Screen name="addCat/addCatStyle" options={{ href: null }} />
+          <Tabs.Screen name="catDetail/[id]" options={{ href: null }} />
+          <Tabs.Screen name="catDetail/CatDetailStyle" options={{ href: null }} />
         </Tabs>
       </CatsContext.Provider>
     </PaperProvider>

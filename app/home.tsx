@@ -1,20 +1,21 @@
 import { useContext } from 'react';
 import { SafeAreaView, ScrollView, View, StyleSheet, Platform, StatusBar } from 'react-native';
+import { Stack } from 'expo-router';
 import CatsContext from '../hooks/CatsContext';
-
 import CatOverview from '../components/catOverview/CatOverview';
 
-const PHOTOS = Array.from({ length: 25 }).map((_, i) => `https://unsplash.it/300/300/?random&__id=${i}`);
+const PHOTO = Array.from({ length: 1 }).map((_, i) => `https://unsplash.it/300/300/?random&__id=${i}`);
 
 const Home = () => {
   const { cats, setCats } = useContext(CatsContext);
 
   return (
     <SafeAreaView style={styles.container}>
+      <Stack.Screen options={{ title: 'Cats' }} />
       <ScrollView>
         <View style={styles.grid}>
           {cats.map((cat) => (
-            <CatOverview key={cat.name} name={cat.name} uri={PHOTOS[0]}></CatOverview>
+            <CatOverview key={cat.id} photo={PHOTO[0]} {...cat}></CatOverview>
           ))}
         </View>
       </ScrollView>
