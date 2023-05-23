@@ -1,4 +1,4 @@
-import { Text } from 'react-native';
+import { Text } from 'react-native-paper';
 import { Card, Button } from 'react-native-paper';
 import styles from './CatDetailStyle';
 
@@ -16,11 +16,11 @@ const CatDetail = ({ name, breed, age, favFoods, description, photo }: CatDetail
   return (
     <Card>
       <Card.Content>
-        <Text>{`Name: ${name}`}</Text>
-        <Text>{`Breed: ${breed}`}</Text>
-        <Text>{`Age: ${age}`}</Text>
-        <Text>{`Favorite foods: ${favFoods}`}</Text>
-        <Text>{`Description: ${description}`}</Text>
+        <Text variant="bodyLarge">{`Name: ${name}`}</Text>
+        <Text variant="bodyLarge">{`Breed: ${breed}`}</Text>
+        <Text variant="bodyLarge">{`Age: ${age}`}</Text>
+        <Text variant="bodyLarge">{`Favorite foods: ${favFoods}`}</Text>
+        <Text variant="bodyLarge">{`Description: ${description}`}</Text>
       </Card.Content>
       <Card.Cover source={{ uri: photo }} />
       {/* <Card.Actions>
