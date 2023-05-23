@@ -28,6 +28,31 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
   },
+  card: {
+    margin: '4%',
+    flex: 1,
+  },
+  // view: {
+  //   justifyContent: 'center',
+  //   alignContent: 'center',
+  //   textAlign: 'center', // <-- the magic
+  //   backgroundColor: 'red',
+  // },
+  // cardContent: {
+  //   textAlign: 'center', // <-- the magic
+  //   fontWeight: 'bold',
+  //   fontSize: 18,
+  //   marginTop: 0,
+  //   width: '100%',
+  //   height: '100%',
+  //   backgroundColor: 'yellow',
+  //   // flex: 1,
+  //   // margin: 20,
+  //   // // flex: 1,
+  //   // textAlign: 'center',
+  //   // alignContent: 'center',
+  //   // justifyContent: 'center',
+  // },
 });
 
 export default styles;
