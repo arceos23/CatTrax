@@ -18,7 +18,7 @@ const catDetail = () => {
     <SafeAreaView style={styles.container}>
       <Stack.Screen options={{ title: cat.name }} />
       <CatDetail {...cat}></CatDetail>
-      <Link href={`./editDetail/${id}`} asChild>
+      <Link href={`../editCat/${id}`} asChild>
         <Button>Edit cat</Button>
       </Link>
       <Button

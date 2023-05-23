@@ -31,7 +31,7 @@ export default function Layout() {
           <Tabs.Screen name="catDetail/[id]" options={{ href: null }} />
           <Tabs.Screen name="catDetail/catDetailStyle" options={{ href: null }} />
           <Tabs.Screen name="editCat/[id]" options={{ href: null }} />
-          <Tabs.Screen name="editCat/editDetailStyle" options={{ href: null }} />
+          <Tabs.Screen name="editCat/editCatStyle" options={{ href: null }} />
         </Tabs>
       </CatsContext.Provider>
     </PaperProvider>
