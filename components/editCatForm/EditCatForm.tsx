@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useCallback } from 'react';
 import { useRouter } from 'expo-router';
 import { Button, TextInput, Snackbar } from 'react-native-paper';
 import styles from './EditCatFormStyles';
@@ -20,7 +20,6 @@ const generateKey = (name: string) => {
 
 const EditCatForm = ({ id, name, breed, age, favFoods, description, photo }: CatDetailProps) => {
   const router = useRouter();
-  const [newId, setNewId] = useState(name);
   const [newName, setNewName] = useState(name);
   const [newBreed, setNewBreed] = useState(breed);
   const [newAge, setNewAge] = useState(age);
@@ -41,27 +40,19 @@ const EditCatForm = ({ id, name, breed, age, favFoods, description, photo }: Cat
       <TextInput label="Description" value={newDescription} onChangeText={setNewDescription} multiline></TextInput>
       <Button
         onPress={() => {
-          setNewId(generateKey(name));
-          setCats(cats.filter((cat) => cat.id !== id));
-          setCats([
-            ...cats,
-            {
-              id: newId,
-              name: newName,
-              breed: newBreed,
-              age: newAge,
-              favFoods: newFavFoods,
-              description: newDescription,
-              photo: newPhoto,
-            },
-          ]);
+          const newId = generateKey(newName);
+          const updatedCats = cats.filter((cat) => cat.id !== id);
+          updatedCats.push({
+            id: newId,
+            name: newName,
+            breed: newBreed,
+            age: newAge,
+            favFoods: newFavFoods,
+            description: newDescription,
+            photo: newPhoto,
+          });
+          setCats(updatedCats);
           router.push(`/catDetail/${newId}`);
-          setNewName('');
-          setNewBreed('');
-          setNewAge('');
-          setNewFavFoods('');
-          setNewDescription('');
-          // setNewPhoto('');
           onToggleSnackBar();
         }}
       >

@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import { useRouter } from 'expo-router';
 import { Button, TextInput, Snackbar } from 'react-native-paper';
 import styles from './AddCatFormStyles';
 import CatsContext from '../../hooks/CatsContext';
@@ -8,6 +9,7 @@ const generateKey = (name: string) => {
 };
 
 const AddCatForm = () => {
+  const router = useRouter();
   const [name, setName] = useState('');
   const [breed, setBreed] = useState('');
   const [age, setAge] = useState('');
@@ -36,6 +38,7 @@ const AddCatForm = () => {
           setAge('');
           setFavFoods('');
           setDescription('');
+          router.push('/home');
           onToggleSnackBar();
         }}
       >

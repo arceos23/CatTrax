@@ -16,7 +16,6 @@ const EditCat = () => {
     <SafeAreaView style={styles.container}>
       <Stack.Screen options={{ title: 'Edit cat' }} />
       <EditCatForm {...cat}></EditCatForm>
-      {/* <EditCatForm></EditCatForm> */}
     </SafeAreaView>
   );
 };
