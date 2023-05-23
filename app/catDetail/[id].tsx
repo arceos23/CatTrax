@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { SafeAreaView } from 'react-native';
-import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import styles from './CatDetailStyle';
+import { Link, Stack, useLocalSearchParams, useRouter } from 'expo-router';
+import styles from './catDetailStyle';
 import CatDetail from '../../components/catDetail/CatDetail';
 import CatsContext from '../../hooks/CatsContext';
 import { Button } from 'react-native-paper';
@@ -18,7 +18,9 @@ const catDetail = () => {
     <SafeAreaView style={styles.container}>
       <Stack.Screen options={{ title: cat.name }} />
       <CatDetail {...cat}></CatDetail>
-      <Button>Edit cat</Button>
+      <Link href={`./editDetail/${id}`} asChild>
+        <Button>Edit cat</Button>
+      </Link>
       <Button
         onPress={() => {
           router.push('/home');
