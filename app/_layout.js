@@ -31,16 +31,3 @@ export default function Layout() {
     </PaperProvider>
   );
 }
-
-/* <Stack
-        initialRouteName="home"
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: '#f4511e',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}
-      /> */
