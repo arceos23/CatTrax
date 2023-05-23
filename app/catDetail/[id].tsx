@@ -18,9 +18,13 @@ const catDetail = () => {
     <SafeAreaView style={styles.container}>
       <Stack.Screen options={{ title: cat.name }} />
       <CatDetail {...cat}></CatDetail>
-      <Link href={`../editCat/${id}`} asChild>
-        <Button>Edit cat</Button>
-      </Link>
+      <Button
+        onPress={() => {
+          router.push(`../editCat/${id}`);
+        }}
+      >
+        Edit cat
+      </Button>
       <Button
         onPress={() => {
           router.push('/home');

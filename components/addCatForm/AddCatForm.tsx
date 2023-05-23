@@ -1,13 +1,13 @@
 import { useState, useContext } from 'react';
 import { Button, TextInput, Snackbar } from 'react-native-paper';
-import styles from './CatFormStyles';
+import styles from './AddCatFormStyles';
 import CatsContext from '../../hooks/CatsContext';
 
 const generateKey = (name: string) => {
   return `${name}_${new Date().getTime()}`;
 };
 
-const CatForm = () => {
+const AddCatForm = () => {
   const [name, setName] = useState('');
   const [breed, setBreed] = useState('');
   const [age, setAge] = useState('');
@@ -58,4 +58,4 @@ const CatForm = () => {
   );
 };
 
-export default CatForm;
+export default AddCatForm;
