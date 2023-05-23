@@ -20,19 +20,17 @@ const generateKey = (name: string) => {
 
 const EditCatForm = ({ id, name, breed, age, favFoods, description, photo }: CatDetailProps) => {
   const router = useRouter();
+  const [newId, setNewId] = useState(name);
   const [newName, setNewName] = useState(name);
   const [newBreed, setNewBreed] = useState(breed);
   const [newAge, setNewAge] = useState(age);
   const [newFavFoods, setNewFavFoods] = useState(favFoods);
   const [newDescription, setNewDescription] = useState(description);
-  // const [newPhoto, setNewPhoto] = useState(photo);
+  const [newPhoto, setNewPhoto] = useState(photo);
   const { cats, setCats } = useContext(CatsContext);
   const [visible, setVisible] = useState(false);
   const onToggleSnackBar = () => setVisible(!visible);
   const onDismissSnackBar = () => setVisible(false);
-
-  // For testing
-  // const photo = Array.from({ length: 1 }).map((_, i) => `https://unsplash.it/300/300/?random&__id=${i}`);
 
   return (
     <>
@@ -43,15 +41,27 @@ const EditCatForm = ({ id, name, breed, age, favFoods, description, photo }: Cat
       <TextInput label="Description" value={newDescription} onChangeText={setNewDescription} multiline></TextInput>
       <Button
         onPress={() => {
-          router.push(`/catDetail/${id}`);
+          setNewId(generateKey(name));
           setCats(cats.filter((cat) => cat.id !== id));
-          setCats([...cats, { id: id, newName, newBreed, newAge, newFavFoods, newDescription, photo: photo[0] }]);
-          // setCats([...cats, { id: id, newName, newBreed, newAge, newFavFoods, newDescription, newPhoto: photo[0] }]);
+          setCats([
+            ...cats,
+            {
+              id: newId,
+              name: newName,
+              breed: newBreed,
+              age: newAge,
+              favFoods: newFavFoods,
+              description: newDescription,
+              photo: photo,
+            },
+          ]);
+          router.push(`/catDetail/${newId}`);
           setNewName('');
           setNewBreed('');
           setNewAge('');
           setNewFavFoods('');
           setNewDescription('');
+          // setNewPhoto('');
           onToggleSnackBar();
         }}
       >
