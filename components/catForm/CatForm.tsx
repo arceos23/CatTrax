@@ -1,6 +1,5 @@
 import { useState, useContext } from 'react';
-import { View, Text, FlatList } from 'react-native';
-import { Button, TextInput } from 'react-native-paper';
+import { Button, TextInput, Snackbar } from 'react-native-paper';
 import styles from './CatFormStyles';
 import CatsContext from '../../hooks/CatsContext';
 
@@ -11,6 +10,9 @@ const CatForm = () => {
   const [favFoods, setFavFoods] = useState('');
   const [description, setDescription] = useState('');
   const { cats, setCats } = useContext(CatsContext);
+  const [visible, setVisible] = useState(false);
+  const onToggleSnackBar = () => setVisible(!visible);
+  const onDismissSnackBar = () => setVisible(false);
 
   return (
     <>
@@ -22,10 +24,29 @@ const CatForm = () => {
       <Button
         onPress={() => {
           setCats([...cats, { name, breed, age, favFoods, description }]);
+          setName('');
+          setBreed('');
+          setAge('');
+          setFavFoods('');
+          setDescription('');
+          onToggleSnackBar();
         }}
       >
         Submit
       </Button>
+      <Snackbar
+        visible={visible}
+        onDismiss={onDismissSnackBar}
+        action={{
+          label: 'Close',
+          onPress: () => {
+            onDismissSnackBar;
+          },
+        }}
+        duration={1000}
+      >
+        Cat added!
+      </Snackbar>
     </>
   );
 };
