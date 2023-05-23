@@ -8,9 +8,9 @@ import CatsContext from '../hooks/CatsContext';
 export default function Index() {
   return (
     <PaperProvider>
-      <CatsContext.Provider value={{ cats: [{ key: 'tim' }], setCats: null }}>
-        <Redirect href="/home" />
-      </CatsContext.Provider>
+      {/* <CatsContext.Provider value={{ cats: [{ key: 'tim' }], setCats: null }}> */}
+      <Redirect href="/home" />
+      {/* </CatsContext.Provider> */}
     </PaperProvider>
   );
 }

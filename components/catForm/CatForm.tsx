@@ -11,7 +11,7 @@ const CatForm = () => {
   const [age, setAge] = useState('');
   const [favFoods, setFavFoods] = useState('');
   const [description, setDescription] = useState('');
-  let { cats, setCats } = useContext(CatsContext);
+  const { cats, setCats } = useContext(CatsContext);
 
   return (
     <>
@@ -20,15 +20,27 @@ const CatForm = () => {
       <TextInput label="Age" value={age} onChangeText={setAge} multiline></TextInput>
       <TextInput label="Favorite foods" value={favFoods} onChangeText={setFavFoods} multiline></TextInput>
       <TextInput label="Description" value={description} onChangeText={setDescription} multiline></TextInput>
-      <Button
+      {/* WORKING BUTTON */}
+      {/* <Button
         onPress={() => {
           cats.push({ name, breed, age, favFoods, description });
           return <Redirect href="/home" />;
         }}
       >
         Submit
+      </Button> */}
+
+      {/* OTHER TRIES */}
+      <Button
+        onPress={() => {
+          setCats([...cats, { name, breed, age, favFoods, description }]);
+        }}
+      >
+        Submit
       </Button>
-      {/* <FlatList
+      {/* <Button onPress={() => setCats((arr) => [...arr, { name, breed, age, favFoods, description }])}>Submit</Button> */}
+
+      <FlatList
         data={cats}
         renderItem={({ item }) => {
           return (
@@ -41,7 +53,7 @@ const CatForm = () => {
             </>
           );
         }}
-      ></FlatList> */}
+      ></FlatList>
     </>
   );
 };

@@ -22,6 +22,7 @@ const Home = () => {
   const router = useRouter();
   const { cats, setCats } = useContext(CatsContext);
 
+  console.log(cats);
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
@@ -43,6 +44,9 @@ const Home = () => {
           {cats.map((cat) => (
             <CatOverview key={cat.name} name={cat.name} uri={PHOTOS[0]}></CatOverview>
           ))}
+          {/* {cats.map((cat) => (
+            <CatOverview key={cat.name} name={cat.name} uri={PHOTOS[0]}></CatOverview>
+          ))} */}
           {/* <View style={styles.grid}> */}
           {/* {PHOTOS.map((uri) => (
             <CatOverview key={uri} uri={uri}></CatOverview>
