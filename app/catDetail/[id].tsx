@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { SafeAreaView } from 'react-native';
-import { useLocalSearchParams } from 'expo-router';
+import { Stack, useLocalSearchParams } from 'expo-router';
 import styles from './CatDetailStyle';
 import CatDetail from '../../components/catDetail/CatDetail';
 import CatsContext from '../../hooks/CatsContext';
@@ -11,12 +11,11 @@ const catDetail = () => {
 
   const cat = cats.filter((cat) => {
     return cat.id === id;
-  });
+  })[0];
   return (
     <SafeAreaView style={styles.container}>
-      {/* <Stack.Screen options={{ title: {cat.name} }} /> */}
-      {/* <Stack.Screen options={{ title: '[CAT NAME]' }} /> */}
-      <CatDetail id={''} name={''} breed={''} age={''} favFoods={''} description={''} photo={0} {...cat}></CatDetail>
+      <Stack.Screen options={{ title: cat.name }} />
+      <CatDetail {...cat}></CatDetail>
     </SafeAreaView>
   );
 };

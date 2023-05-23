@@ -31,8 +31,6 @@ const CatForm = () => {
       <Button
         onPress={() => {
           setCats([...cats, { id: generateKey(name), name, breed, age, favFoods, description, photo: photo[0] }]);
-          // console.log({ id: generateKey(name), name, breed, age, favFoods, description, photo[0 });
-          console.log(cats);
           setName('');
           setBreed('');
           setAge('');
