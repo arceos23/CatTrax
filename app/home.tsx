@@ -3,6 +3,7 @@ import { SafeAreaView, ScrollView, View, StyleSheet, Platform, StatusBar } from 
 import { Stack } from 'expo-router';
 import CatsContext from '../hooks/CatsContext';
 import CatOverview from '../components/catOverview/CatOverview';
+import { Text } from 'react-native-paper';
 
 const Home = () => {
   const { cats, setCats } = useContext(CatsContext);
@@ -11,11 +12,19 @@ const Home = () => {
     <SafeAreaView style={styles.container}>
       <Stack.Screen options={{ title: 'Cats' }} />
       <ScrollView>
-        <View style={styles.grid}>
-          {cats.map((cat) => (
-            <CatOverview key={cat.id} {...cat}></CatOverview>
-          ))}
-        </View>
+        {cats.length !== 0 ? (
+          <View style={styles.grid}>
+            {cats.map((cat) => (
+              <CatOverview key={cat.id} {...cat}></CatOverview>
+            ))}
+          </View>
+        ) : (
+          <View style={styles.grid}>
+            <Text variant="labelLarge" style={{ color: 'white' }}>
+              Add your cats to see them here!
+            </Text>
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
