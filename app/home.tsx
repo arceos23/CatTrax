@@ -1,7 +1,18 @@
 import { useState, useContext } from 'react';
-import { SafeAreaView, ScrollView, View, Text, StyleSheet, Platform, StatusBar, FlatList } from 'react-native';
-import { Stack, useRouter, Link } from 'expo-router';
+import {
+  SafeAreaView,
+  ScrollView,
+  View,
+  Text,
+  StyleSheet,
+  Platform,
+  StatusBar,
+  FlatList,
+  Pressable,
+} from 'react-native';
+import { Stack, useRouter } from 'expo-router';
 import CatsContext from '../hooks/CatsContext';
+import Nav from '../components/Nav';
 
 import CatOverview from '../components/catOverview/CatOverview';
 
@@ -13,7 +24,6 @@ const Home = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Link href="./addCat/AddCat">Add cat</Link>
       <FlatList
         data={cats}
         renderItem={({ item }) => {
@@ -33,12 +43,13 @@ const Home = () => {
           {cats.map((cat) => (
             <CatOverview key={cat.name} name={cat.name} uri={PHOTOS[0]}></CatOverview>
           ))}
-          {/* <View style={styles.grid}>
-          {PHOTOS.map((uri) => (
+          {/* <View style={styles.grid}> */}
+          {/* {PHOTOS.map((uri) => (
             <CatOverview key={uri} uri={uri}></CatOverview>
           ))} */}
         </View>
       </ScrollView>
+      {/* <Nav></Nav> */}
     </SafeAreaView>
   );
 };
