@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import EditCatForm from '../../components/editCatForm/EditCatForm';
 import styles from './editCatStyle';
@@ -13,9 +13,11 @@ const EditCat = () => {
     return cat.id === id;
   })[0];
   return (
-    <SafeAreaView style={styles.container}>
-      <Stack.Screen options={{ title: 'Edit cat' }} />
-      <EditCatForm {...cat}></EditCatForm>
+    <SafeAreaView style={styles.safeAreaView}>
+      <View style={styles.container}>
+        <Stack.Screen options={{ title: 'Edit cat' }} />
+        <EditCatForm {...cat}></EditCatForm>
+      </View>
     </SafeAreaView>
   );
 };

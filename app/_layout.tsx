@@ -27,6 +27,7 @@ export default function Layout() {
           />
           {/* Hidden tabs */}
           <Tabs.Screen name="index" options={{ href: null }} />
+          <Tabs.Screen name="homeStyle" options={{ href: null }} />
           <Tabs.Screen name="addCat/addCatStyle" options={{ href: null }} />
           <Tabs.Screen name="catDetail/[id]" options={{ href: null }} />
           <Tabs.Screen name="catDetail/catDetailStyle" options={{ href: null }} />

@@ -2,15 +2,15 @@ import { useContext } from 'react';
 import { SafeAreaView, ScrollView, View, StyleSheet, Platform, StatusBar } from 'react-native';
 import { Stack } from 'expo-router';
 import { Text } from 'react-native-paper';
+import styles from './homeStyle';
 import CatsContext from '../hooks/CatsContext';
 import CatOverview from '../components/catOverview/CatOverview';
-import { SPACING } from '../constants/constants';
 
 const Home = () => {
   const { cats, setCats } = useContext(CatsContext);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.safeAreaView}>
       <Stack.Screen options={{ title: 'Cats' }} />
       <ScrollView>
         {cats.length !== 0 ? (
@@ -30,33 +30,5 @@ const Home = () => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  ...Platform.select({
-    web: {
-      grid: {
-        display: 'grid' as 'none',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
-        gridRowGap: '8px',
-        gridColumnGap: '8px',
-        padding: 8,
-        backgroundColor: '#3B3838',
-      },
-    },
-    default: {
-      grid: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        padding: SPACING,
-        justifyContent: 'space-evenly',
-        backgroundColor: '#3B3838',
-      },
-    },
-  }),
-  container: {
-    flex: 1,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-  },
-});
 
 export default Home;
