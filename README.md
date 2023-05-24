@@ -10,13 +10,13 @@ The user views the splash screen for CatTrax as the app loads.
 
 <img src="./demo/screenshots/Home_screen-empty.jpg"  width="50%">
 
-The user is prompted to begin adding cats. The user can sort cats by name or breed in aphabetical order and can sort cats by age in ascending or descending order.
+The user is prompted to begin adding cats. The user can sort cats by name or breed in alphabetical order and can sort cats by age in ascending or descending order.
 
 ## Add cat screen - empty
 
 <img src="./demo/screenshots/Add_cat_screen-empty.jpg"  width="50%">
 
-The user has several fields to fill out a cat's details: name, breed, age, favorite foods, description, and an image of the cat.
+The user has several fields to fill out a cat's details: name, breed, age, favorite foods, description, and an image of the cat. The user can select an image to upload from the phone’s camera role and apps associated with it such as a Google Drive.
 
 ## Add cat screen - filled
 
@@ -34,13 +34,13 @@ After pressing submit in the cat added screen, the user is redirected to the hom
 
 <img src="./demo/screenshots/Cat_detail_screen.jpg"  width="50%">
 
-The user gets redirected to the cat detail screen for a given cat after selecting it in the home screen. The user can choose to begin editing a cat's details or remove a cat.
+The user gets redirected to the cat detail screen for a given cat after selecting it in the home screen. The user can choose to begin editing this cat's details or remove it.
 
 ## Edit cat screen
 
 <img src="./demo/screenshots/Edit_cat _screen.jpg"  width="50%">
 
-The user can edit a cat's details.
+The user can edit a cat's details. This form is uploaded with the selected cat's previous information for easy editing upon inital render of the screen.
 
 ## Home screen - cats added and sorted by name
 
@@ -59,6 +59,8 @@ The user can sort by name, breed, and age. Here, the cats are sorted by age in a
 <img src="./demo/screenshots/Home_screen-removed_a_cat.jpg"  width="50%">
 
 The user can remove a cat and the cat list will update. Here, Lucy was removed.
+
+---
 
 ---
 
