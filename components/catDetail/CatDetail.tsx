@@ -16,6 +16,7 @@ const CatDetail = ({ name, breed, age, favFoods, description, image }: CatDetail
   return (
     <Card mode="contained" style={styles.card}>
       <Card.Cover source={{ uri: image }} />
+      {/* <Card.Cover source={{ uri: image }} style={styles.image} /> */}
       {/* <Card.Content style={styles.cardContent}> */}
       <Card.Content>
         {/* <View style={styles.view}> */}

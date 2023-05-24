@@ -44,6 +44,9 @@ const EditCatForm = ({ id, name, breed, age, favFoods, description, image }: Cat
         onPress={() => {
           const newId = generateKey(newName);
           const updatedCats = cats.filter((cat) => cat.id !== id);
+          if (newImage === '') {
+            setNewImage('assets/CatTraxIcon.png');
+          }
           updatedCats.push({
             id: newId,
             name: newName,

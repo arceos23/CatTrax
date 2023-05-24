@@ -4,7 +4,6 @@ import { Surface } from 'react-native-paper';
 import styles from './CatOverviewStyle';
 
 const CatOverview = ({ id, name, image }) => {
-  console.log(image);
   return (
     <Link href={`./catDetail/${id}`} asChild>
       {/* <Pressable style={styles.surface}> */}
