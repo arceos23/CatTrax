@@ -5,7 +5,7 @@ export type Cat = {
   age: string;
   favFoods: string;
   description: string;
-  photo: string;
+  image: string;
 };
 
 type CatsContextType = {

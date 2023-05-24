@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
       },
     },
   }),
-  photo: {
+  image: {
     flex: 1,
     resizeMode: 'cover',
     borderRadius: Dimensions.get('window').width * 0.05,

@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
       },
     },
   }),
-  photo: {
+  image: {
     flex: 1,
     resizeMode: 'cover',
   },

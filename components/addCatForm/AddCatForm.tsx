@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import { Button, TextInput, Snackbar } from 'react-native-paper';
 import styles from './AddCatFormStyles';
 import CatsContext from '../../hooks/CatsContext';
+import ImagePicker from '../imagePicker/ImagePicker';
 
 const generateKey = (name: string) => {
   return `${name}_${new Date().getTime()}`;
@@ -15,13 +16,14 @@ const AddCatForm = () => {
   const [age, setAge] = useState('');
   const [favFoods, setFavFoods] = useState('');
   const [description, setDescription] = useState('');
+  const [image, setImage] = useState('');
   const { cats, setCats } = useContext(CatsContext);
   const [visible, setVisible] = useState(false);
   const onToggleSnackBar = () => setVisible(!visible);
   const onDismissSnackBar = () => setVisible(false);
 
   // For testing
-  const photo = Array.from({ length: 1 }).map((_, i) => `https://unsplash.it/300/300/?random&__id=${i}`);
+  // const photo = Array.from({ length: 1 }).map((_, i) => `https://unsplash.it/300/300/?random&__id=${i}`);
 
   return (
     <>
@@ -30,14 +32,16 @@ const AddCatForm = () => {
       <TextInput label="Age" value={age} onChangeText={setAge} multiline></TextInput>
       <TextInput label="Favorite foods" value={favFoods} onChangeText={setFavFoods} multiline></TextInput>
       <TextInput label="Description" value={description} onChangeText={setDescription} multiline></TextInput>
+      <ImagePicker image={image} setImage={setImage}></ImagePicker>
       <Button
         onPress={() => {
-          setCats([...cats, { id: generateKey(name), name, breed, age, favFoods, description, photo: photo[0] }]);
+          setCats([...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }]);
           setName('');
           setBreed('');
           setAge('');
           setFavFoods('');
           setDescription('');
+          setImage('');
           router.push('/home');
           onToggleSnackBar();
         }}

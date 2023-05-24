@@ -11,21 +11,21 @@ interface CatDetailProps {
   age: string;
   favFoods: string;
   description: string;
-  photo: string;
+  image: string;
 }
 
 const generateKey = (name: string) => {
   return `${name}_${new Date().getTime()}`;
 };
 
-const EditCatForm = ({ id, name, breed, age, favFoods, description, photo }: CatDetailProps) => {
+const EditCatForm = ({ id, name, breed, age, favFoods, description, image }: CatDetailProps) => {
   const router = useRouter();
   const [newName, setNewName] = useState(name);
   const [newBreed, setNewBreed] = useState(breed);
   const [newAge, setNewAge] = useState(age);
   const [newFavFoods, setNewFavFoods] = useState(favFoods);
   const [newDescription, setNewDescription] = useState(description);
-  const [newPhoto, setNewPhoto] = useState(photo);
+  const [newImage, setNewImage] = useState(image);
   const { cats, setCats } = useContext(CatsContext);
   const [visible, setVisible] = useState(false);
   const onToggleSnackBar = () => setVisible(!visible);
@@ -49,7 +49,7 @@ const EditCatForm = ({ id, name, breed, age, favFoods, description, photo }: Cat
             age: newAge,
             favFoods: newFavFoods,
             description: newDescription,
-            photo: newPhoto,
+            image: newImage,
           });
           setCats(updatedCats);
           router.push(`/catDetail/${newId}`);
