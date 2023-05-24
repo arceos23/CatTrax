@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { Stack, useLocalSearchParams } from 'expo-router';
-import EditCatForm from '../../components/editCatForm/EditCatForm';
 import styles from './editCatStyle';
+import EditCatForm from '../../components/editCatForm/EditCatForm';
 import CatsContext from '../../hooks/catsContext/CatsContext';
 
 const EditCat = () => {
