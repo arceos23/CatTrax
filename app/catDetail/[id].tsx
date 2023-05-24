@@ -33,7 +33,6 @@ const catDetail = () => {
       >
         Remove cat
       </Button>
-      <Button>Favorite cat</Button>
     </SafeAreaView>
   ) : null;
 };
