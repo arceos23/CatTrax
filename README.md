@@ -16,13 +16,13 @@ The user is prompted to begin adding cats. The user can sort cats by name or bre
 
 <img src="./demo/screenshots/Add_cat_screen-empty.jpg"  width="50%">
 
-The user has several fields to fill out a cat's details: name, breed, age, favorite foods, description, and an image of the cat. The user can select an image to upload from the phone’s camera role and apps associated with it such as a Google Drive.
+The user has several fields to fill out a cat's details: name, breed, age, favorite foods, description, and an image of the cat. The user can select an image to upload from the phone’s camera roll and apps associated with it such as a Google Drive.
 
 ## Add cat screen - filled
 
 <img src="./demo/screenshots/Add_cat_screen-filled.jpg"  width="50%">
 
-The user can scroll through the form's input if it exceeds its container. This is shown in the screenshot where the scroll area is being pulled down and the scrollbar can be seen on the right of the container.
+The user can scroll through the form's input if it exceeds its container. This is shown in the screenshot where the scroll area is being pulled down, and the scrollbar can be seen on the right of the container.
 
 ## Home screen - cat added
 
