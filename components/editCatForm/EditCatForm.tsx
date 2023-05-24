@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import { Button, TextInput, Snackbar } from 'react-native-paper';
 import styles from './EditCatFormStyles';
 import CatsContext from '../../hooks/CatsContext';
+import ImagePicker from '../imagePicker/ImagePicker';
 
 interface CatDetailProps {
   id: string;
@@ -38,6 +39,7 @@ const EditCatForm = ({ id, name, breed, age, favFoods, description, image }: Cat
       <TextInput label="Age" value={newAge} onChangeText={setNewAge} multiline></TextInput>
       <TextInput label="Favorite foods" value={newFavFoods} onChangeText={setNewFavFoods} multiline></TextInput>
       <TextInput label="Description" value={newDescription} onChangeText={setNewDescription} multiline></TextInput>
+      <ImagePicker image={newImage} setImage={setNewImage}></ImagePicker>
       <Button
         onPress={() => {
           const newId = generateKey(newName);
