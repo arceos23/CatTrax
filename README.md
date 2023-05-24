@@ -40,7 +40,7 @@ The user gets redirected to the cat detail screen for a given cat after selectin
 
 <img src="./demo/screenshots/Edit_cat _screen.jpg"  width="50%">
 
-The user can edit a cat's details. This form is uploaded with the selected cat's previous information for easy editing upon inital render of the screen.
+The user can edit a cat's details. This form is uploaded with the selected cat's previous information for easy editing upon initial render of the screen.
 
 ## Home screen - cats added and sorted by name
 
