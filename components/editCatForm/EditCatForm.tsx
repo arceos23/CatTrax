@@ -1,7 +1,7 @@
-import { useState, useContext, useCallback } from 'react';
+import { useState, useContext } from 'react';
 import { ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Button, TextInput, Snackbar } from 'react-native-paper';
+import { Button, TextInput, Card } from 'react-native-paper';
 import styles from './EditCatFormStyles';
 import CatsContext from '../../hooks/CatsContext';
 import ImagePicker from '../imagePicker/ImagePicker';
@@ -26,20 +26,26 @@ const EditCatForm = ({ id, name, breed, age, favFoods, description, image }: Cat
   const [newDescription, setNewDescription] = useState(description);
   const [newImage, setNewImage] = useState(image);
   const { cats, setCats } = useContext(CatsContext);
-  const [visible, setVisible] = useState(false);
-  const onToggleSnackBar = () => setVisible(!visible);
-  const onDismissSnackBar = () => setVisible(false);
 
   return (
     <>
-      <ImagePicker image={newImage} setImage={setNewImage}></ImagePicker>
-      <ScrollView>
-        <TextInput label="Name" value={newName} onChangeText={setNewName} multiline></TextInput>
-        <TextInput label="Breed" value={newBreed} onChangeText={setNewBreed} multiline></TextInput>
-        <TextInput label="Age" value={newAge} onChangeText={setNewAge} multiline></TextInput>
-        <TextInput label="Favorite foods" value={newFavFoods} onChangeText={setNewFavFoods} multiline></TextInput>
-        <TextInput label="Description" value={newDescription} onChangeText={setNewDescription} multiline></TextInput>
-      </ScrollView>
+      <Card mode="contained" style={styles.card}>
+        <ScrollView>
+          <ImagePicker image={newImage} setImage={setNewImage}></ImagePicker>
+          <Card.Content>
+            <TextInput label="Name" value={newName} onChangeText={setNewName} multiline></TextInput>
+            <TextInput label="Breed" value={newBreed} onChangeText={setNewBreed} multiline></TextInput>
+            <TextInput label="Age" value={newAge} onChangeText={setNewAge} multiline></TextInput>
+            <TextInput label="Favorite foods" value={newFavFoods} onChangeText={setNewFavFoods} multiline></TextInput>
+            <TextInput
+              label="Description"
+              value={newDescription}
+              onChangeText={setNewDescription}
+              multiline
+            ></TextInput>
+          </Card.Content>
+        </ScrollView>
+      </Card>
       <Button
         mode="contained"
         onPress={() => {
@@ -59,25 +65,10 @@ const EditCatForm = ({ id, name, breed, age, favFoods, description, image }: Cat
           });
           setCats(updatedCats);
           router.push(`/catDetail/${newId}`);
-          onToggleSnackBar();
         }}
-        style={styles.button}
       >
         Submit
       </Button>
-      <Snackbar
-        visible={visible}
-        onDismiss={onDismissSnackBar}
-        action={{
-          label: 'Close',
-          onPress: () => {
-            onDismissSnackBar;
-          },
-        }}
-        duration={1000}
-      >
-        Cat updated!
-      </Snackbar>
     </>
   );
 };
