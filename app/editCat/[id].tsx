@@ -3,7 +3,7 @@ import { SafeAreaView, View } from 'react-native';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import EditCatForm from '../../components/editCatForm/EditCatForm';
 import styles from './editCatStyle';
-import CatsContext from '../../hooks/CatsContext';
+import CatsContext from '../../hooks/catsContext/CatsContext';
 
 const EditCat = () => {
   const { cats, setCats } = useContext(CatsContext);

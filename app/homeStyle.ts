@@ -26,6 +26,10 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     backgroundColor: '#3B3838',
   },
+  segmentedButtons: {
+    marginLeft: SPACING,
+    marginRight: SPACING,
+  },
 });
 
 export default styles;

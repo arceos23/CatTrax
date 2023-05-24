@@ -3,9 +3,11 @@ import { ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Button, TextInput, Card } from 'react-native-paper';
 import styles from './EditCatFormStyles';
-import CatsContext from '../../hooks/CatsContext';
+import CatsContext from '../../hooks/catsContext/CatsContext';
+import SortContext from '../../hooks/sortContext/SortContext';
 import ImagePicker from '../imagePicker/ImagePicker';
-import { generateKey } from '../../utils/utils';
+import { generateKey, compareName, compareBreed, compareAgeAsc, compareAgeDesc } from '../../utils/utils';
+import { SORT_PROPERTIES } from '../../constants/constants';
 
 interface CatDetailProps {
   id: string;
@@ -26,6 +28,7 @@ const EditCatForm = ({ id, name, breed, age, favFoods, description, image }: Cat
   const [newDescription, setNewDescription] = useState(description);
   const [newImage, setNewImage] = useState(image);
   const { cats, setCats } = useContext(CatsContext);
+  const { property, setProperty } = useContext(SortContext);
 
   return (
     <>
@@ -63,6 +66,15 @@ const EditCatForm = ({ id, name, breed, age, favFoods, description, image }: Cat
             description: newDescription,
             image: newImage,
           });
+          if (property === SORT_PROPERTIES.NAME) {
+            updatedCats.sort(compareName);
+          } else if (property === SORT_PROPERTIES.BREED) {
+            updatedCats.sort(compareBreed);
+          } else if (property === SORT_PROPERTIES.AGE_ASC) {
+            updatedCats.sort(compareAgeAsc);
+          } else if (property === SORT_PROPERTIES.AGE_DESC) {
+            updatedCats.sort(compareAgeDesc);
+          }
           setCats(updatedCats);
           router.push(`/catDetail/${newId}`);
         }}

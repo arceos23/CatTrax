@@ -4,9 +4,10 @@ import { useRouter } from 'expo-router';
 import { Button, TextInput, Card } from 'react-native-paper';
 import styles from './AddCatFormStyles';
 import ImagePicker from '../imagePicker/ImagePicker';
-import CatsContext from '../../hooks/CatsContext';
-import { generateKey } from '../../utils/utils';
-import { DEFAULT_IMAGE } from '../../constants/constants';
+import CatsContext from '../../hooks/catsContext/CatsContext';
+import SortContext from '../../hooks/sortContext/SortContext';
+import { generateKey, compareName, compareBreed, compareAgeAsc, compareAgeDesc } from '../../utils/utils';
+import { DEFAULT_IMAGE, SORT_PROPERTIES } from '../../constants/constants';
 
 const AddCatForm = () => {
   const router = useRouter();
@@ -17,6 +18,7 @@ const AddCatForm = () => {
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(DEFAULT_IMAGE);
   const { cats, setCats } = useContext(CatsContext);
+  const { property, setProperty } = useContext(SortContext);
 
   return (
     <>
@@ -35,7 +37,23 @@ const AddCatForm = () => {
       <Button
         mode="contained"
         onPress={() => {
-          setCats([...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }]);
+          if (property === SORT_PROPERTIES.NAME) {
+            setCats(
+              [...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }].sort(compareName)
+            );
+          } else if (property === SORT_PROPERTIES.BREED) {
+            setCats(
+              [...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }].sort(compareBreed)
+            );
+          } else if (property === SORT_PROPERTIES.AGE_ASC) {
+            setCats(
+              [...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }].sort(compareAgeAsc)
+            );
+          } else if (property === SORT_PROPERTIES.AGE_DESC) {
+            setCats(
+              [...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }].sort(compareAgeDesc)
+            );
+          }
           setName('');
           setBreed('');
           setAge('');
