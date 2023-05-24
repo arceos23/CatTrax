@@ -1,5 +1,5 @@
 import { Dimensions, Platform, StyleSheet } from 'react-native';
-import { SPACING } from '../../constants/constants';
+import { SPACING } from '../../common/constants';
 
 const styles = StyleSheet.create({
   ...Platform.select({

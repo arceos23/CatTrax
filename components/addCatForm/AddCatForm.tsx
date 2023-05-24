@@ -7,7 +7,7 @@ import ImagePicker from '../imagePicker/ImagePicker';
 import CatsContext from '../../hooks/catsContext/CatsContext';
 import SortContext from '../../hooks/sortContext/SortContext';
 import { generateKey, compareName, compareBreed, compareAgeAsc, compareAgeDesc } from '../../utils/utils';
-import { DEFAULT_IMAGE, SORT_PROPERTIES } from '../../constants/constants';
+import { DEFAULT_IMAGE, SORT_PROPERTIES } from '../../common/constants';
 
 const AddCatForm = () => {
   const router = useRouter();

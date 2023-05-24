@@ -7,17 +7,8 @@ import CatsContext from '../../hooks/catsContext/CatsContext';
 import SortContext from '../../hooks/sortContext/SortContext';
 import ImagePicker from '../imagePicker/ImagePicker';
 import { generateKey, compareName, compareBreed, compareAgeAsc, compareAgeDesc } from '../../utils/utils';
-import { SORT_PROPERTIES } from '../../constants/constants';
-
-interface CatDetailProps {
-  id: string;
-  name: string;
-  breed: string;
-  age: string;
-  favFoods: string;
-  description: string;
-  image: string;
-}
+import { SORT_PROPERTIES } from '../../common/constants';
+import { CatDetailProps } from '../../common/typesAndInterfaces';
 
 const EditCatForm = ({ id, name, breed, age, favFoods, description, image }: CatDetailProps) => {
   const router = useRouter();

@@ -1,12 +1,4 @@
-export type Cat = {
-  id: string;
-  name: string;
-  breed: string;
-  age: string;
-  favFoods: string;
-  description: string;
-  image: string;
-};
+import { Cat } from '../../common/typesAndInterfaces';
 
 type CatsContextType = {
   cats: Array<Cat> | null;

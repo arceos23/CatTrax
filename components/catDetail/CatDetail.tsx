@@ -1,16 +1,7 @@
 import { View } from 'react-native';
 import { Text, Card } from 'react-native-paper';
 import styles from './CatDetailStyle';
-
-interface CatDetailProps {
-  id: string;
-  name: string;
-  breed: string;
-  age: string;
-  favFoods: string;
-  description: string;
-  image: string;
-}
+import { CatDetailProps } from '../../common/typesAndInterfaces';
 
 const CatDetail = ({ name, breed, age, favFoods, description, image }: CatDetailProps) => {
   return (

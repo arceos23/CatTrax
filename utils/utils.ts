@@ -1,4 +1,4 @@
-import { Cat } from '../hooks/catsContext/CatsContextTypes';
+import { Cat } from '../common/typesAndInterfaces';
 
 export const generateKey = (name: string) => {
   return `${name}_${new Date().getTime()}`;
