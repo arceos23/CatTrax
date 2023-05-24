@@ -25,8 +25,8 @@ export const compareBreed = (a: Cat, b: Cat) => {
 };
 
 export const compareAgeAsc = (a: Cat, b: Cat) => {
-  const aAge = parseInt(a.age);
-  const bAge = parseInt(b.age);
+  const aAge = parseFloat(a.age);
+  const bAge = parseFloat(b.age);
   if (aAge < bAge) {
     return -1;
   }
@@ -37,8 +37,8 @@ export const compareAgeAsc = (a: Cat, b: Cat) => {
 };
 
 export const compareAgeDesc = (a: Cat, b: Cat) => {
-  const aAge = parseInt(a.age);
-  const bAge = parseInt(b.age);
+  const aAge = parseFloat(a.age);
+  const bAge = parseFloat(b.age);
   if (aAge > bAge) {
     return -1;
   }

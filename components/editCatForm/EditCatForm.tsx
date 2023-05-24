@@ -8,7 +8,7 @@ import CatsContext from '../../hooks/catsContext/CatsContext';
 import SortContext from '../../hooks/sortContext/SortContext';
 import { generateKey, compareName, compareBreed, compareAgeAsc, compareAgeDesc } from '../../utils/utils';
 import { SORT_PROPERTIES } from '../../common/constants';
-import { CatDetailProps } from '../../common/typesAndInterfaces';
+import { Cat, CatDetailProps } from '../../common/typesAndInterfaces';
 
 const EditCatForm = ({ id, name, breed, age, favFoods, description, image }: CatDetailProps) => {
   const router = useRouter();
@@ -22,7 +22,7 @@ const EditCatForm = ({ id, name, breed, age, favFoods, description, image }: Cat
   const { property, setProperty } = useContext(SortContext);
 
   const getUpdatedCats = (newId: string) => {
-    const updatedCats = cats.filter((cat) => cat.id !== id);
+    const updatedCats: Array<Cat> = cats.filter((cat) => cat.id !== id);
     updatedCats.push({
       id: newId,
       name: newName,
@@ -52,7 +52,7 @@ const EditCatForm = ({ id, name, breed, age, favFoods, description, image }: Cat
           <Card.Content>
             <TextInput label="Name" value={newName} onChangeText={setNewName} multiline></TextInput>
             <TextInput label="Breed" value={newBreed} onChangeText={setNewBreed} multiline></TextInput>
-            <TextInput label="Age" value={newAge} onChangeText={setNewAge} multiline></TextInput>
+            <TextInput label="Age" keyboardType="numeric" value={newAge} onChangeText={setNewAge} multiline></TextInput>
             <TextInput label="Favorite foods" value={newFavFoods} onChangeText={setNewFavFoods} multiline></TextInput>
             <TextInput
               label="Description"
