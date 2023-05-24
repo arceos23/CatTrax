@@ -1,13 +1,12 @@
 import { useState, useContext } from 'react';
 import { ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Button, TextInput, Snackbar, Card } from 'react-native-paper';
+import { Button, TextInput, Card } from 'react-native-paper';
 import styles from './AddCatFormStyles';
-import CatsContext from '../../hooks/CatsContext';
 import ImagePicker from '../imagePicker/ImagePicker';
+import CatsContext from '../../hooks/CatsContext';
 import { generateKey } from '../../utils/utils';
-import { Asset } from 'expo-asset';
-const defaultImage = Asset.fromModule(require('../../assets/CatTraxIcon.png')).uri;
+import { DEFAULT_IMAGE } from '../../constants/constants';
 
 const AddCatForm = () => {
   const router = useRouter();
@@ -16,11 +15,8 @@ const AddCatForm = () => {
   const [age, setAge] = useState('');
   const [favFoods, setFavFoods] = useState('');
   const [description, setDescription] = useState('');
-  const [image, setImage] = useState(defaultImage);
+  const [image, setImage] = useState(DEFAULT_IMAGE);
   const { cats, setCats } = useContext(CatsContext);
-  const [visible, setVisible] = useState(false);
-  const onToggleSnackBar = () => setVisible(!visible);
-  const onDismissSnackBar = () => setVisible(false);
 
   return (
     <>
@@ -45,9 +41,8 @@ const AddCatForm = () => {
           setAge('');
           setFavFoods('');
           setDescription('');
-          setImage(defaultImage);
+          setImage(DEFAULT_IMAGE);
           router.push('/home');
-          onToggleSnackBar();
         }}
       >
         Submit
