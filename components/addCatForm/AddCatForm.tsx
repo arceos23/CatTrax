@@ -6,7 +6,6 @@ import CatsContext from '../../hooks/CatsContext';
 import ImagePicker from '../imagePicker/ImagePicker';
 
 import { Asset } from 'expo-asset';
-// const defaultImage = Asset.fromModule(require('./CatTraxIcon.png')).uri;
 const defaultImage = Asset.fromModule(require('../../assets/CatTraxIcon.png')).uri;
 
 const generateKey = (name: string) => {
@@ -21,14 +20,10 @@ const AddCatForm = () => {
   const [favFoods, setFavFoods] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(defaultImage);
-  // const [image, setImage] = useState('');
   const { cats, setCats } = useContext(CatsContext);
   const [visible, setVisible] = useState(false);
   const onToggleSnackBar = () => setVisible(!visible);
   const onDismissSnackBar = () => setVisible(false);
-
-  // For testing
-  // const photo = Array.from({ length: 1 }).map((_, i) => `https://unsplash.it/300/300/?random&__id=${i}`);
 
   return (
     <>
@@ -40,23 +35,6 @@ const AddCatForm = () => {
       <ImagePicker image={image} setImage={setImage}></ImagePicker>
       <Button
         onPress={() => {
-          // const img = image !== '' ? image : 'file://' + RNFS.DocumentDirectoryPath + '/directory/my.png';
-          // const img = image !== '' ? image : '../../assets/CatTraxIcon.png';
-          // const img = image !== '' ? image : require('../../assets/CatTraxIcon.png');
-          let img = image ? image : require('./CatTraxIcon.png');
-          // console.log('img:', img);
-          // img = Asset.fromModule(require('./CatTraxIcon.png')).uri;
-          // img = defaultImage;
-          console.log('before', img);
-          console.log('before', defaultImage);
-          if (img === 19) {
-            console.log('in');
-            img = defaultImage;
-            img = Asset.fromModule(require('./CatTraxIcon.png')).uri;
-          }
-          console.log('after', img);
-          // setCats([...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }]);
-          // setCats([...cats, { id: generateKey(name), name, breed, age, favFoods, description, img }]);
           setCats([...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }]);
           setName('');
           setBreed('');
