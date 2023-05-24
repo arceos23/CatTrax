@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Tabs } from 'expo-router';
-import { PaperProvider } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { PaperProvider } from 'react-native-paper';
 import CatsContext from '../hooks/CatsContext';
 
 export default function Layout() {

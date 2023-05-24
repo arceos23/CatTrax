@@ -1,7 +1,7 @@
 import { SafeAreaView } from 'react-native';
 import { Stack } from 'expo-router';
-import AddCatForm from '../../components/addCatForm/AddCatForm';
 import styles from './addCatStyle';
+import AddCatForm from '../../components/addCatForm/AddCatForm';
 
 const AddCat = () => {
   return (

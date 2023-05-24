@@ -1,10 +1,10 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { SafeAreaView } from 'react-native';
-import { Link, Stack, useLocalSearchParams, useRouter } from 'expo-router';
+import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
+import { Button } from 'react-native-paper';
 import styles from './catDetailStyle';
 import CatDetail from '../../components/catDetail/CatDetail';
 import CatsContext from '../../hooks/CatsContext';
-import { Button } from 'react-native-paper';
 
 const catDetail = () => {
   const router = useRouter();

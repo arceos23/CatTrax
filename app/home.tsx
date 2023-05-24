@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { SafeAreaView, ScrollView, View, StyleSheet, Platform, StatusBar } from 'react-native';
 import { Stack } from 'expo-router';
+import { Text } from 'react-native-paper';
 import CatsContext from '../hooks/CatsContext';
 import CatOverview from '../components/catOverview/CatOverview';
-import { Text } from 'react-native-paper';
 
 const Home = () => {
   const { cats, setCats } = useContext(CatsContext);
