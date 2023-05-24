@@ -4,6 +4,7 @@ import { Button, TextInput, Snackbar } from 'react-native-paper';
 import styles from './EditCatFormStyles';
 import CatsContext from '../../hooks/CatsContext';
 import ImagePicker from '../imagePicker/ImagePicker';
+import { generateKey } from '../../utils/utils';
 
 interface CatDetailProps {
   id: string;
@@ -14,10 +15,6 @@ interface CatDetailProps {
   description: string;
   image: string;
 }
-
-const generateKey = (name: string) => {
-  return `${name}_${new Date().getTime()}`;
-};
 
 const EditCatForm = ({ id, name, breed, age, favFoods, description, image }: CatDetailProps) => {
   const router = useRouter();

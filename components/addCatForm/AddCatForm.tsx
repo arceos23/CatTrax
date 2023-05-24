@@ -4,13 +4,10 @@ import { Button, TextInput, Snackbar } from 'react-native-paper';
 import styles from './AddCatFormStyles';
 import CatsContext from '../../hooks/CatsContext';
 import ImagePicker from '../imagePicker/ImagePicker';
+import { generateKey } from '../../utils/utils';
 
 import { Asset } from 'expo-asset';
 const defaultImage = Asset.fromModule(require('../../assets/CatTraxIcon.png')).uri;
-
-const generateKey = (name: string) => {
-  return `${name}_${new Date().getTime()}`;
-};
 
 const AddCatForm = () => {
   const router = useRouter();
