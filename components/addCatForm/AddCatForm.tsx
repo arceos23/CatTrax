@@ -20,6 +20,28 @@ const AddCatForm = () => {
   const { cats, setCats } = useContext(CatsContext);
   const { property, setProperty } = useContext(SortContext);
 
+  const getUpdatedCats = () => {
+    let updatedCats = [];
+    if (property === SORT_PROPERTIES.NAME) {
+      updatedCats = [...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }].sort(
+        compareName
+      );
+    } else if (property === SORT_PROPERTIES.BREED) {
+      updatedCats = [...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }].sort(
+        compareBreed
+      );
+    } else if (property === SORT_PROPERTIES.AGE_ASC) {
+      updatedCats = [...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }].sort(
+        compareAgeAsc
+      );
+    } else if (property === SORT_PROPERTIES.AGE_DESC) {
+      updatedCats = [...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }].sort(
+        compareAgeDesc
+      );
+    }
+    return updatedCats;
+  };
+
   return (
     <>
       <Card mode="contained" style={styles.card}>
@@ -37,23 +59,7 @@ const AddCatForm = () => {
       <Button
         mode="contained"
         onPress={() => {
-          if (property === SORT_PROPERTIES.NAME) {
-            setCats(
-              [...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }].sort(compareName)
-            );
-          } else if (property === SORT_PROPERTIES.BREED) {
-            setCats(
-              [...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }].sort(compareBreed)
-            );
-          } else if (property === SORT_PROPERTIES.AGE_ASC) {
-            setCats(
-              [...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }].sort(compareAgeAsc)
-            );
-          } else if (property === SORT_PROPERTIES.AGE_DESC) {
-            setCats(
-              [...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }].sort(compareAgeDesc)
-            );
-          }
+          setCats(getUpdatedCats());
           setName('');
           setBreed('');
           setAge('');

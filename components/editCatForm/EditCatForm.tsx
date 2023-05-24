@@ -30,6 +30,32 @@ const EditCatForm = ({ id, name, breed, age, favFoods, description, image }: Cat
   const { cats, setCats } = useContext(CatsContext);
   const { property, setProperty } = useContext(SortContext);
 
+  const getUpdatedCats = (newId: string) => {
+    const updatedCats = cats.filter((cat) => cat.id !== id);
+    if (newImage === '') {
+      setNewImage('assets/CatTraxIcon.png');
+    }
+    updatedCats.push({
+      id: newId,
+      name: newName,
+      breed: newBreed,
+      age: newAge,
+      favFoods: newFavFoods,
+      description: newDescription,
+      image: newImage,
+    });
+    if (property === SORT_PROPERTIES.NAME) {
+      updatedCats.sort(compareName);
+    } else if (property === SORT_PROPERTIES.BREED) {
+      updatedCats.sort(compareBreed);
+    } else if (property === SORT_PROPERTIES.AGE_ASC) {
+      updatedCats.sort(compareAgeAsc);
+    } else if (property === SORT_PROPERTIES.AGE_DESC) {
+      updatedCats.sort(compareAgeDesc);
+    }
+    return updatedCats;
+  };
+
   return (
     <>
       <Card mode="contained" style={styles.card}>
@@ -53,29 +79,7 @@ const EditCatForm = ({ id, name, breed, age, favFoods, description, image }: Cat
         mode="contained"
         onPress={() => {
           const newId = generateKey(newName);
-          const updatedCats = cats.filter((cat) => cat.id !== id);
-          if (newImage === '') {
-            setNewImage('assets/CatTraxIcon.png');
-          }
-          updatedCats.push({
-            id: newId,
-            name: newName,
-            breed: newBreed,
-            age: newAge,
-            favFoods: newFavFoods,
-            description: newDescription,
-            image: newImage,
-          });
-          if (property === SORT_PROPERTIES.NAME) {
-            updatedCats.sort(compareName);
-          } else if (property === SORT_PROPERTIES.BREED) {
-            updatedCats.sort(compareBreed);
-          } else if (property === SORT_PROPERTIES.AGE_ASC) {
-            updatedCats.sort(compareAgeAsc);
-          } else if (property === SORT_PROPERTIES.AGE_DESC) {
-            updatedCats.sort(compareAgeDesc);
-          }
-          setCats(updatedCats);
+          setCats(getUpdatedCats(newId));
           router.push(`/catDetail/${newId}`);
         }}
       >
