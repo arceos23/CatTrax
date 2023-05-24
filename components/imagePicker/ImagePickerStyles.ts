@@ -5,8 +5,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: '5%',
   },
   button: {
+    marginTop: '5%',
     marginBottom: '5%',
   },
   image: {

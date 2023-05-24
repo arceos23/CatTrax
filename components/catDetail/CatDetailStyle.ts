@@ -1,4 +1,4 @@
-import { Dimensions, Platform, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   image: {
@@ -13,8 +13,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   view: {
+    flex: 1,
     alignContent: 'center',
     justifyContent: 'center',
+  },
+  text: {
+    marginBottom: 0.05,
   },
 });
 

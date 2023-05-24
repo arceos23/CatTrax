@@ -1,12 +1,11 @@
 import { useState, useContext } from 'react';
 import { ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Button, TextInput, Snackbar } from 'react-native-paper';
+import { Button, TextInput, Snackbar, Card } from 'react-native-paper';
 import styles from './AddCatFormStyles';
 import CatsContext from '../../hooks/CatsContext';
 import ImagePicker from '../imagePicker/ImagePicker';
 import { generateKey } from '../../utils/utils';
-
 import { Asset } from 'expo-asset';
 const defaultImage = Asset.fromModule(require('../../assets/CatTraxIcon.png')).uri;
 
@@ -25,14 +24,18 @@ const AddCatForm = () => {
 
   return (
     <>
-      <ImagePicker image={image} setImage={setImage}></ImagePicker>
-      <ScrollView>
-        <TextInput label="Name" value={name} onChangeText={setName} multiline></TextInput>
-        <TextInput label="Breed" value={breed} onChangeText={setBreed} multiline></TextInput>
-        <TextInput label="Age" value={age} onChangeText={setAge} multiline></TextInput>
-        <TextInput label="Favorite foods" value={favFoods} onChangeText={setFavFoods} multiline></TextInput>
-        <TextInput label="Description" value={description} onChangeText={setDescription} multiline></TextInput>
-      </ScrollView>
+      <Card mode="contained" style={styles.card}>
+        <ScrollView>
+          <ImagePicker image={image} setImage={setImage}></ImagePicker>
+          <Card.Content>
+            <TextInput label="Name" value={name} onChangeText={setName} multiline></TextInput>
+            <TextInput label="Breed" value={breed} onChangeText={setBreed} multiline></TextInput>
+            <TextInput label="Age" value={age} onChangeText={setAge} multiline></TextInput>
+            <TextInput label="Favorite foods" value={favFoods} onChangeText={setFavFoods} multiline></TextInput>
+            <TextInput label="Description" value={description} onChangeText={setDescription} multiline></TextInput>
+          </Card.Content>
+        </ScrollView>
+      </Card>
       <Button
         mode="contained"
         onPress={() => {
@@ -46,23 +49,9 @@ const AddCatForm = () => {
           router.push('/home');
           onToggleSnackBar();
         }}
-        style={styles.button}
       >
         Submit
       </Button>
-      <Snackbar
-        visible={visible}
-        onDismiss={onDismissSnackBar}
-        action={{
-          label: 'Close',
-          onPress: () => {
-            onDismissSnackBar;
-          },
-        }}
-        duration={1000}
-      >
-        Cat added!
-      </Snackbar>
     </>
   );
 };
