@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { Text, Card, Button } from 'react-native-paper';
+import { Text, Card } from 'react-native-paper';
 import styles from './CatDetailStyle';
 
 interface CatDetailProps {
