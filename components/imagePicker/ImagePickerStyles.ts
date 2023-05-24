@@ -1,15 +1,16 @@
 import { StyleSheet } from 'react-native';
+import { SPACING } from '../../constants/constants';
 
 const styles = StyleSheet.create({
   view: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: '5%',
+    marginBottom: SPACING,
   },
   button: {
-    marginTop: '5%',
-    marginBottom: '5%',
+    marginTop: SPACING,
+    marginBottom: SPACING,
   },
   image: {
     width: 200,

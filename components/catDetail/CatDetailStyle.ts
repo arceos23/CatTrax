@@ -1,15 +1,16 @@
 import { StyleSheet } from 'react-native';
+import { SPACING } from '../../constants/constants';
 
 const styles = StyleSheet.create({
   image: {
     width: 200,
     height: 200,
     borderRadius: 50,
-    marginTop: '5%',
-    marginBottom: '5%',
+    marginTop: SPACING,
+    marginBottom: SPACING,
   },
   card: {
-    margin: '5%',
+    margin: SPACING,
     flex: 1,
   },
   view: {

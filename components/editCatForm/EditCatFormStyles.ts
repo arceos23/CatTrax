@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native';
+import { SPACING } from '../../constants/constants';
 
 const styles = StyleSheet.create({
   button: {
-    margin: '5%',
+    margin: SPACING,
   },
 });
 

@@ -1,4 +1,5 @@
 import { Platform, StatusBar, StyleSheet } from 'react-native';
+import { SPACING } from '../../constants/constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -6,12 +7,12 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   button: {
-    marginLeft: '5%',
-    marginRight: '5%',
-    marginBottom: '5%',
+    marginLeft: SPACING,
+    marginRight: SPACING,
+    marginBottom: SPACING,
   },
   scrollView: {
-    marginBottom: '5%',
+    marginBottom: SPACING,
   },
 });
 

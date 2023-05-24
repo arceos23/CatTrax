@@ -1,4 +1,5 @@
 import { Dimensions, Platform, StyleSheet } from 'react-native';
+import { SPACING } from '../../constants/constants';
 
 const styles = StyleSheet.create({
   ...Platform.select({
@@ -6,7 +7,7 @@ const styles = StyleSheet.create({
       surface: {
         width: '100%',
         height: 150,
-        padding: '5%',
+        padding: SPACING,
         backgroundColor: 'lightgrey',
         borderRadius: 150 * 0.1,
         overflow: 'hidden',

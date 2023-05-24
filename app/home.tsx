@@ -4,6 +4,7 @@ import { Stack } from 'expo-router';
 import { Text } from 'react-native-paper';
 import CatsContext from '../hooks/CatsContext';
 import CatOverview from '../components/catOverview/CatOverview';
+import { SPACING } from '../constants/constants';
 
 const Home = () => {
   const { cats, setCats } = useContext(CatsContext);
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
       grid: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        padding: '5%',
+        padding: SPACING,
         justifyContent: 'space-evenly',
         backgroundColor: '#3B3838',
       },

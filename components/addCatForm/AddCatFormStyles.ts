@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { SPACING } from '../../constants/constants';
 
 const styles = StyleSheet.create({
   image: {
@@ -8,7 +9,7 @@ const styles = StyleSheet.create({
   },
   card: {
     flex: 1,
-    marginBottom: '5%',
+    marginBottom: SPACING,
   },
   view: {
     flex: 1,
