@@ -1,5 +1,9 @@
-import { Dimensions, Platform, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  button: {
+    margin: '5%',
+  },
+});
 
 export default styles;

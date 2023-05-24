@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import { ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Button, TextInput, Snackbar } from 'react-native-paper';
 import styles from './AddCatFormStyles';
@@ -24,13 +25,16 @@ const AddCatForm = () => {
 
   return (
     <>
-      <TextInput label="Name" value={name} onChangeText={setName} multiline></TextInput>
-      <TextInput label="Breed" value={breed} onChangeText={setBreed} multiline></TextInput>
-      <TextInput label="Age" value={age} onChangeText={setAge} multiline></TextInput>
-      <TextInput label="Favorite foods" value={favFoods} onChangeText={setFavFoods} multiline></TextInput>
-      <TextInput label="Description" value={description} onChangeText={setDescription} multiline></TextInput>
       <ImagePicker image={image} setImage={setImage}></ImagePicker>
+      <ScrollView>
+        <TextInput label="Name" value={name} onChangeText={setName} multiline></TextInput>
+        <TextInput label="Breed" value={breed} onChangeText={setBreed} multiline></TextInput>
+        <TextInput label="Age" value={age} onChangeText={setAge} multiline></TextInput>
+        <TextInput label="Favorite foods" value={favFoods} onChangeText={setFavFoods} multiline></TextInput>
+        <TextInput label="Description" value={description} onChangeText={setDescription} multiline></TextInput>
+      </ScrollView>
       <Button
+        mode="contained"
         onPress={() => {
           setCats([...cats, { id: generateKey(name), name, breed, age, favFoods, description, image }]);
           setName('');
@@ -42,6 +46,7 @@ const AddCatForm = () => {
           router.push('/home');
           onToggleSnackBar();
         }}
+        style={styles.button}
       >
         Submit
       </Button>

@@ -1,4 +1,5 @@
 import { useState, useContext, useCallback } from 'react';
+import { ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Button, TextInput, Snackbar } from 'react-native-paper';
 import styles from './EditCatFormStyles';
@@ -31,13 +32,16 @@ const EditCatForm = ({ id, name, breed, age, favFoods, description, image }: Cat
 
   return (
     <>
-      <TextInput label="Name" value={newName} onChangeText={setNewName} multiline></TextInput>
-      <TextInput label="Breed" value={newBreed} onChangeText={setNewBreed} multiline></TextInput>
-      <TextInput label="Age" value={newAge} onChangeText={setNewAge} multiline></TextInput>
-      <TextInput label="Favorite foods" value={newFavFoods} onChangeText={setNewFavFoods} multiline></TextInput>
-      <TextInput label="Description" value={newDescription} onChangeText={setNewDescription} multiline></TextInput>
       <ImagePicker image={newImage} setImage={setNewImage}></ImagePicker>
+      <ScrollView>
+        <TextInput label="Name" value={newName} onChangeText={setNewName} multiline></TextInput>
+        <TextInput label="Breed" value={newBreed} onChangeText={setNewBreed} multiline></TextInput>
+        <TextInput label="Age" value={newAge} onChangeText={setNewAge} multiline></TextInput>
+        <TextInput label="Favorite foods" value={newFavFoods} onChangeText={setNewFavFoods} multiline></TextInput>
+        <TextInput label="Description" value={newDescription} onChangeText={setNewDescription} multiline></TextInput>
+      </ScrollView>
       <Button
+        mode="contained"
         onPress={() => {
           const newId = generateKey(newName);
           const updatedCats = cats.filter((cat) => cat.id !== id);
@@ -57,6 +61,7 @@ const EditCatForm = ({ id, name, breed, age, favFoods, description, image }: Cat
           router.push(`/catDetail/${newId}`);
           onToggleSnackBar();
         }}
+        style={styles.button}
       >
         Submit
       </Button>

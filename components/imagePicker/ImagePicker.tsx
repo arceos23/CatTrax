@@ -1,5 +1,7 @@
-import { Button, Image, View } from 'react-native';
+import { Image, View } from 'react-native';
+import { Button } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
+import styles from './ImagePickerStyles';
 
 export default function ImagePickerExample({ image, setImage }) {
   const pickImage = async () => {
@@ -17,9 +19,11 @@ export default function ImagePickerExample({ image, setImage }) {
   };
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button title="Pick an image from camera roll" onPress={pickImage} />
-      {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+    <View style={styles.view}>
+      <Button mode="contained" onPress={pickImage} style={styles.button}>
+        Pick an image from camera roll
+      </Button>
+      {image && <Image source={{ uri: image }} style={styles.image} />}
     </View>
   );
 }
