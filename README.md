@@ -1,3 +1,23 @@
+# **CatTrax**
+
+CatTrax is a simple cat manager mobile app that allows a user to add, view, update, and delete cats. This application was built using React Native, Expo, and React Native Paper.
+
+# Features
+
+- View a list of all added cats sorted by name or breed in alphabetical order or by age in ascending or descending order
+
+- Add a cat to the list with its details: name, breed, age, favorite foods, description, and an image
+
+- View a cat including all its details
+
+- Edit a cat's details
+
+- Remove a cat from the list
+
+# Installation
+
+To install and run this app, you will need Node.js, Expo CLI, and all app dependencies installed on your computer. Globally install Expo CLI by running `npm install -g expo-cli`. Next, clone the repo and run `npm install` to install all required app dependencies. Start the development server by running `npx expo start`. If this command does not work, try running `npx expo start --tunnel` as sometimes router configurations might be the issue. Download the Expo Go app on your phone and scan the QR code shown in the terminal. Please reference the [Expo documentation](https://docs.expo.dev/get-started/installation/) for troubleshooting.
+
 # Demo
 
 ## Splash screen
@@ -59,83 +79,3 @@ The user can sort by name, breed, and age. Here, the cats are sorted by age in a
 <img src="./demo/screenshots/Home_screen-removed_a_cat.jpg"  width="50%">
 
 The user can remove a cat and the cat list will update. Here, Lucy was removed.
-
----
-
----
-
-## Instructions
-
-### Build your app
-
-You have 1 week to complete the challenge.
-
-Implementation and design will be evaluated.
-
-### Submit your challenge
-
-Follow these instructions to submit your challenge.
-
-- Fork this Repository
-- Setup your Development Environment
-- Write your Code
-- Create a PR off of your forked repo
-- Send me the PR so I can review it :)
-
-### Impress us with your skills
-
-Challenge:
-
-Jack owns so many cats that he can't keep track of all of them. He needs some way to keep track of all of his cats - almost like a Pokédex for cats.
-
-### Requirements
-
-Your app should be able to complete the following tasks:
-
-- Add a new Cat (Name, Breed, Description, or anything else you think would be important)
-- Remove Cats
-- Edit Cats
-- List all of his Cats
-- Persist data using React Contexts or Redux
-
-### Grading
-
-The grading of the app will be based off of three criteria:
-
-- 30% - UI and UX
-- 40% - Overall Design and Structure
-- 30% - Data Management and Store
-
----
-
-## Set up your development environment:
-
-If you have any issues following this README, try this resource: https://docs.expo.dev/get-started/create-a-project/
-
-Firstly, Fork this repo
-
-### start development server
-
-Notes on installing the Expo CLI: https://docs.expo.dev/more/expo-cli/
-
-To run:
-
-`npx expo start`
-
-This should create a window like this:
-
-<img width="500" alt="Screenshot 2023-05-16 at 10 13 11 AM" src="https://github.com/JasonLeviGoodison/CodingChallengeApp/assets/20760528/e24a44ff-f3b9-4bab-a1e5-ecd02f31ec7a">
-
-You have 2 options for developing:
-
-- if you have your mobile phone, you can install the Expo Go app and scan the QR code that shows up.
-  This is the easiest way to get started fast.
-- If you want to run on an emulator
-
-  - if on mac, you can either install simulator (ios) or android studio. I recommend simulator:
-    the shortcut to launch the app on the simulator after running expo start is : i
-
-  - if on Windows, you must install android studio, open Virtual Device manager, launch an android emulator.
-    The shortcut to launch the app on the simulator after running expo start is : i
-
----
